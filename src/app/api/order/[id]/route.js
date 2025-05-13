@@ -1,13 +1,13 @@
 // src/app/api/order/[id]/route.js
 import mongoose from 'mongoose';
 
-const uri = process.env.MONGODB_URI || "mongodb+srv://sunbreathing13form:Pimse123@cluster0.ny9by.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-if (!uri) throw new Error('MONGODB_URI not set');
+// const uri = process.env.MONGODB_URI || "mongodb+srv://sunbreathing13form:Pimse123@cluster0.ny9by.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// if (!uri) throw new Error('MONGODB_URI not set');
 
 let cached = global._db;
 async function connect() {
   if (cached) return;
-  await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
   cached = true;
 }
 

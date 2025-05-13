@@ -2,13 +2,13 @@
 import mongoose from 'mongoose';
 
 // 1) Connect (cache in dev)
-const uri = process.env.MONGODB_URI;
-if (!uri) throw new Error('MONGODB_URI not set');
+// const uri = process.env.MONGODB_URI;
+// if (!uri) throw new Error('MONGODB_URI not set');
 
 let cached = global._db;
 async function connect() {
   if (cached) return;
-  await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
   cached = true;
 }
 
