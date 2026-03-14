@@ -92,6 +92,10 @@ export default function MenuPage() {
     router.push('/order');
   };
 
+  const goToOrderManager = () => {
+    router.push('/ordermanagement');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header with Categories */}
@@ -110,6 +114,12 @@ export default function MenuPage() {
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
               >
                 View Order
+              </button>
+              <button
+                onClick={goToOrderManager}
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+              >
+                Order Manager
               </button>
             </div>
           </div>
